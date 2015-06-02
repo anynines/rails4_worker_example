@@ -1,0 +1,18 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: rails4_worker_development
+  pool: 5
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: rails4_worker_test
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: rails4_worker_production

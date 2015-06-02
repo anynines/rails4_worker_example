@@ -1,0 +1,11 @@
+---
+applications:
+- name: rails4_worker_app
+  memory: 512M
+  instances: 1
+  host: rails4_worker_app
+  domain: de.a9sapp.eu
+  path: .
+  buildpack: https://github.com/cloudfoundry/heroku-buildpack-ruby.git
+  services:
+    - rails4_worker_mysql

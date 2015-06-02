@@ -1,0 +1,11 @@
+---
+applications:
+- name: rails4_worker
+  memory: 512M
+  instances: 1
+  path: .
+  no-route: true
+  command: bundle exec rake jobs:work
+  buildpack: https://github.com/cloudfoundry/heroku-buildpack-ruby.git
+  services:
+    - rails4_worker_mysql
