@@ -14,7 +14,7 @@ There are no other services required.
 
 ## Getting Started
 ### Create services in Cloud Foundry
-Start by creating the services required by *anynines Dumper*:
+Start by creating the services required by *anynines rails4_worker_example*:
 
 Create a new mysql service (you can see the available service plans by typing `cf m[arketplace]`):
 ```SHELL
@@ -24,7 +24,7 @@ cf create-service mysql <SERVICE PLAN> <SERVICE NAME>
 ### Checkout repository and bundle gems
 Checkout this repository:
 ```SHELL
-git clone https://github.com/anynines/dumper.git
+git clone https://github.com/anynines/rails4_worker_example.git
 cd rails4_worker_example
 ```
 Bundle the gems:
@@ -65,11 +65,11 @@ applications:
   - <MYSQL SERVICE NAME>
 ```
 
-### Push anynines dumper to Cloud Foundry
+### Push anynines rails4_worker_example to Cloud Foundry
 Push the app and its background worker:
 ```SHELL
- cf push -f web-manifest.yml
- cf push -f worker-manifest.yml
+cf push -f web-manifest.yml
+cf push -f worker-manifest.yml
 ```
 
 Note: Make sure that you use the same database, the same MySQL service name in both files.
