@@ -8,4 +8,4 @@ applications:
   command: bundle exec rake jobs:work
   buildpack: ruby_buildpack
   services:
-    - rails4_worker_mysql
+    - rails4_worker_pgsql
