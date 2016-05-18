@@ -6,6 +6,6 @@ applications:
   path: .
   no-route: true
   command: bundle exec rake jobs:work
-  buildpack: https://github.com/cloudfoundry/heroku-buildpack-ruby.git
+  buildpack: ruby_buildpack
   services:
     - rails4_worker_mysql

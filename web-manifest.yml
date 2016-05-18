@@ -4,8 +4,8 @@ applications:
   memory: 512M
   instances: 1
   host: rails4_worker_app
-  domain: de.a9sapp.eu
+  domain: aws.ie.a9sapp.eu
   path: .
-  buildpack: https://github.com/cloudfoundry/heroku-buildpack-ruby.git
+  buildpack: ruby_buildpack
   services:
     - rails4_worker_mysql
