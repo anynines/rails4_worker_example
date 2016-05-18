@@ -2,13 +2,13 @@
 *anynines rails4_worker_example* is a small web app that shows how to use background workers with Rails 4.2 on anynines. Here we use the gem [delayed_job](https://github.com/collectiveidea/delayed_job) for handling the background jobs.
 
 ## Supported Database Services
-- MySQL
+- PostgreSQL
 
 ## Additional Required Services
 There are no other services required.
 
 ## Requirements
-- Ruby 2.2.2
+- Ruby 2.2.4
 - Bundler (`gem install bundler`)
 - Rails 4.2
 
@@ -16,9 +16,9 @@ There are no other services required.
 ### Create services in Cloud Foundry
 Start by creating the services required by *anynines rails4_worker_example*:
 
-Create a new mysql service (you can see the available service plans by typing `cf m[arketplace]`):
+Create a new a9hcp-postgresql service (you can see the available service plans by typing `cf m[arketplace]`):
 ```SHELL
-cf create-service mysql <SERVICE PLAN> <SERVICE NAME>
+cf create-service a9hcp-postgresql <SERVICE PLAN> <SERVICE NAME>
 ```
 
 ### Checkout repository and bundle gems
@@ -42,27 +42,27 @@ applications:
 - name: <APPLICATION NAME>
   memory: 512M
   instances: 1
-  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git
+  buildpack: ruby_buildpack
   host: <HOST NAME>
-  domain: de.a9sapp.eu
+  domain: aws.ie.a9sapp.eu
   path: .
   services:
-  - <MYSQL SERVICE NAME>
+  - <PGSQL SERVICE NAME>
 ```
 
-*workerweb-manifest.yml*
+*worker-manifest.yml*
 ```YAML
 ---
 applications:
 - name: <WORKER NAME>
   memory: 128M
   instances: 1
-  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git
+  buildpack: ruby_buildpack
   path: .
   command: bundle exec rake jobs:work
   no-route: true
   services:
-  - <MYSQL SERVICE NAME>
+  - <PGSQL SERVICE NAME>
 ```
 
 ### Push anynines rails4_worker_example to Cloud Foundry
